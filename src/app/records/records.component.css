@@ -1,0 +1,132 @@
+.navbar {
+  background-color: #2e7d32;
+  color: white;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.container {
+  margin: 2rem auto;
+  max-width: 90%;
+  text-align: center;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  text-align: left;
+  table-layout: auto;
+}
+
+.styled-table thead th {
+  border: 1px solid #ddd;
+  border-bottom: 2px solid #c2c2c2;
+  padding: 0.75rem;
+  text-align: left;
+  background-color: #2e7d32;
+  color: white;
+  font-weight: bold;
+}
+
+.styled-table tbody td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.styled-table tbody td.email-column {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.styled-table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styling */
+.edit-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 0.9rem;
+}
+.btn {
+  background-color: white;
+  color: #2e7d32;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 1.1rem;
+}
+.btn:hover {
+  background-color: #45a049;
+  color: white;
+}
+.edit-btn:hover {
+  background-color: #45a049;
+}
+.nav-btns {
+  display: flex;
+  gap: 2rem;
+}
+.delete-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  font-size: 0.9rem;
+}
+
+.delete-btn:hover {
+  background-color: #e57373;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .styled-table {
+    font-size: 0.9rem;
+  }
+
+  .styled-table thead th,
+  .styled-table tbody td {
+    white-space: normal;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 0.5rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+  .action-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+.action-btns {
+  display: flex;
+  gap: 2rem;
+}

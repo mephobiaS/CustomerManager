@@ -1,0 +1,55 @@
+<nav>
+  <h1>customer management app</h1>
+</nav>
+
+<div class="login-page">
+  <div class="form">
+    <h2>Login</h2>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <input type="text" placeholder="Email" formControlName="email" />
+      <div class="error-div" *ngIf="loginForm.controls['email'].touched">
+        <span *ngIf="loginForm.controls['email'].errors?.['required']"
+          >* Required</span
+        >
+        <span *ngIf="loginForm.controls['email'].errors?.['pattern']"
+          >Type valid email Id</span
+        >
+      </div>
+
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <div class="error-div" *ngIf="loginForm.controls['password'].touched">
+        <span *ngIf="loginForm.controls['password'].errors?.['required']"
+          >* Required</span
+        >
+        <span *ngIf="loginForm.controls['password'].errors?.['minlength']"
+          >Minimum length is 6</span
+        >
+        <span
+          *ngIf="
+        !loginForm.controls['password'].errors?.['minlength'] &&
+        loginForm.controls['password'].errors?.['pattern']
+      "
+        >
+          Should have uppercase, lowercase, digits, and &#64; symbol.
+        </span>
+      </div>
+
+      <select formControlName="role">
+        <option value="" hidden>Select Role</option>
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select>
+      <div class="error-div" *ngIf="loginForm.controls['role'].touched">
+        <span *ngIf="loginForm.controls['role'].errors?.['required']"
+          >* Required</span
+        >
+      </div>
+
+      <button [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
+</div>

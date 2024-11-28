@@ -1,0 +1,62 @@
+<nav class="navbar">
+  <h1>CustomerManager</h1>
+  <div class="nav-btns">
+    <button
+      class="btn"
+      *ngIf="authService.getUserRole() !== 'admin'"
+      (click)="onAdd()"
+    >
+      ADD
+    </button>
+    <button class="btn" (click)="onLogout()">LOGOUT</button>
+  </div>
+</nav>
+
+<div class="container">
+  <table class="styled-table">
+    <thead>
+      <th>Sr No.</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Address</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of records">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td class="email-column">{{ user.email }}</td>
+        <td>{{ user.contact }}</td>
+        <td>{{ user.address }}</td>
+        <td class="action-btns">
+          <button
+            class="edit-btn"
+            *ngIf="authService.getUserRole() !== 'admin'"
+            (click)="onEdit(user.id!)"
+          >
+            Edit
+          </button>
+
+          <button
+            class="delete-btn"
+            *ngIf="authService.getUserRole() === 'admin'"
+            (click)="confirmDelete(user.id!)"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 
+  <app-delete-record
+    *ngIf="showModal"
+    (yesDel)="onYesDelete()"
+    (noDel)="closeModal()"
+  ></app-delete-record>
+ -->
+
+<div #deleteContainer></div>

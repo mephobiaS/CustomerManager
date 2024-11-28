@@ -1,0 +1,59 @@
+<nav>
+  <h1>CustomerManager</h1>
+</nav>
+
+<div class="add-user-page">
+  <div class="form">
+    <h2>{{ isEditMode ? "EDIT USER" : "ADD USER" }}</h2>
+    <form class="user-form" [formGroup]="userForm" (ngSubmit)="onAdding()">
+      <label for="name">Name</label>
+      <input type="text" placeholder="name" formControlName="name" />
+      <div class="error-div" *ngIf="userForm.controls['name'].touched">
+        <span *ngIf="userForm.controls['name'].errors?.['required']"
+          >*required</span
+        >
+        <span *ngIf="userForm.controls['name'].errors?.['minlength']"
+          >minimum length is 2</span
+        >
+      </div>
+
+      <label for="email">Email</label>
+      <input type="email" placeholder="email" formControlName="email" />
+      <div class="error-div" *ngIf="userForm.controls['email'].touched">
+        <span *ngIf="userForm.controls['email'].errors?.['required']"
+          >*required</span
+        >
+        <span *ngIf="userForm.controls['email'].errors?.['pattern']"
+          >enter valid email Id</span
+        >
+      </div>
+
+      <label for="contact">Phone No.</label>
+      <input
+        type="number"
+        placeholder="phone number"
+        formControlName="contact"
+      />
+      <div class="error-div" *ngIf="userForm.controls['contact'].touched">
+        <span *ngIf="userForm.controls['contact'].errors?.['required']"
+          >*required</span
+        >
+        <span *ngIf="userForm.controls['contact'].errors?.['pattern']"
+          >invalid phone number</span
+        >
+      </div>
+
+      <label for="address">Address</label>
+      <textarea name="address" formControlName="address"></textarea>
+      <div class="error-div" *ngIf="userForm.controls['address'].touched">
+        <span *ngIf="userForm.controls['address'].errors?.['required']"
+          >*required</span
+        >
+        <span *ngIf="userForm.controls['address'].errors?.['minlength']"
+          >minimum length is 10</span
+        >
+      </div>
+      <button type="submit">{{ isEditMode ? "UPDATE" : "ADD" }}</button>
+    </form>
+  </div>
+</div>
